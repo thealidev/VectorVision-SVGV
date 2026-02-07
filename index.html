@@ -3,37 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VectorVision | The New Geometric Media Standard</title>
+    <title>VectorVision | The New Geometric Standard</title>
     <style>
-        /* Premium Dark Theme Core [cite: 2026-02-07] */
         :root {
             --primary: #00ffcc;
-            --primary-glow: rgba(0, 255, 204, 0.3);
-            --whatsapp: #25D366;
+            --wa: #25D366;
             --bg: #050505;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --border: #222222;
+            --card: #111111;
+            --text: #ffffff;
+            --dim: #888888;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
         }
 
-        .app-container {
+        .container {
             width: 100%;
-            max-width: 450px; /* Perfect Mobile Viewport [cite: 2026-02-07] */
+            max-width: 450px;
             padding: 24px;
             box-sizing: border-box;
         }
 
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        .logo {
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+        }
+
+        .wa-btn {
+            background: var(--wa);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        header { padding: 40px 0; }
+        h1 { font-size: 3.5rem; margin: 0; line-height: 0.9; }
+        .sub { color: var(--primary); font-weight: bold; margin-top: 15px; letter-spacing: 2px; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #222;
+            padding: 24px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 { color: var(--primary); margin: 0 0 10px 0; font-size: 1.6rem; }
+        p { color: var(--dim); line-height: 1.6; margin: 0; }
+
+        .btn-gh {
+            display: block;
+            text-align: center;
+            background: white;
+            color: black;
+            padding: 18px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 900;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #333;
+            font-size: 0.8rem;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">VectorVision</div>
+            <a href="https://wa.me/923440708494?text=Hi%20Ali,%20I'm%20coming%20from%20the%20VectorVision%20website" class="wa-btn">Contact</a>
+        </nav>
+
+        <header>
+            <h1>Beyond Pixels.</h1>
+            <div class="sub">THE GEOMETRIC ERA</div>
+        </header>
+
+        <div class="card">
+            <p>Killing digital trash with mathematical paths. Infinite resolution. <span style="color:white">85% Data Savings.</span></p>
+        </div>
+
+        <div class="card">
+            <h2>.svgc</h2>
+            <p>Scalable Vector Geometric Camera. The high-fidelity replacement for JPG and PNG.</p>
+        </div>
+
+        <div class="card">
+            <h2>.svgv</h2>
+            <p>Scalable Vector Global Video. The movement-as-geometry standard for future media.</p>
+        </div>
+
+        <a href="https://github.com/thealidev/VectorVision" class="btn-gh">View Repository</a>
+
+        <footer>
+            Architected by Muhammad Ali • Rawalpindi, Pakistan
+        </footer>
+    </div>
+</body>
+</html>
         /* Premium Navigation [cite: 2026-02-07] */
         nav {
             display: flex;
