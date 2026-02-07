@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorVision | SVGV Video Standard</title>
+    <style>
+        :root {
+            --bg: #0a0a0c;
+            --text: #e0e0e0;
+            --primary: #00ffcc;
+            --secondary: #7000ff;
+            --card-bg: #16161a;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0c 100%);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .badge {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Stats/Features */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        /* Tech Specs */
+        .specs {
+            background: #000;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        code {
+            color: var(--secondary);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Footer / Action */
+        footer {
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, var(--secondary), #4b0082);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Simple Animation */
+        #vectorCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="vectorCanvas"></canvas>
+
+    <header>
+        <div class="badge">Research Phase: SVGV v1.0</div>
+        <h1>VectorVision</h1>
+        <p class="subtitle">Replacing the world’s aging pixel grids with mathematical paths. Real-time geometric video for the next generation of hardware.</p>
+        <a href="https://github.com/thealidev/VectorVision-SVGV" class="btn">View Research on GitHub</a>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>85% Compression</h3>
+                <p>By moving from raster to geometry, SVGV reduces a 1.5GB 1080p stream to under 300MB without losing human-fidelity detail.</p>
+            </div>
+            <div class="card">
+                <h3>Anti-Trash Lock</h3>
+                <p>Proprietary logic designed to eliminate sensor grain and "trash" artifacts on budget mobile devices through coordinate precision.</p>
+            </div>
+            <div class="card">
+                <h3>Infinite Resolution</h3>
+                <p>Zoom 100x into any frame. Since the data is mathematical paths (Bézier), there are no pixels to blur. Pure clarity at any scale.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="specs">
+        <h2>Technical Foundation</h2>
+        <p>Built for <code>C++ / NDK</code> | <code>Vulkan API</code> | <code>FP16 GPU Math</code></p>
+        <p style="color: #666;">Inspired by Industrial CNC Toolpathing and Saliency-Aware Geometry.</p>
+    </section>
+
+    <footer>
+        <p>Created by <strong>Muhammad Ali</strong> | Independent Researcher</p>
+        <p style="font-size: 0.8rem; color: #444;">&copy; 2026 Project VectorVision. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple background animation to simulate "vector paths"
+        const canvas = document.getElementById('vectorCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        const lines = [];
+        for(let i=0; i<15; i++) {
+            lines.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0,0, width, height);
+            ctx.strokeStyle = '#00ffcc';
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            
+            for(let i=0; i<lines.length; i++) {
+                let l = lines[i];
+                l.x += l.vx;
+                l.y += l.vy;
+                
+                if(l.x < 0 || l.x > width) l.vx *= -1;
+                if(l.y < 0 || l.y > height) l.vy *= -1;
+
+                ctx.lineTo(l.x, l.y);
+            }
+            ctx.stroke();
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+</body>
+</html>
