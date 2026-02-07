@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // This tells Gradle which version of the Android tools to use
+        // Essential for turning your research into an APK [cite: 2026-02-07]
         classpath 'com.android.tools.build:gradle:8.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0"
     }
@@ -17,23 +17,6 @@ allprojects {
         mavenCentral()
     }
 }
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-    }
-
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-        }
-    }
-}
-
-dependencies {
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
-    implementation 'androidx.activity:activity-compose:1.8.2'
     implementation platform('androidx.compose:compose-bom:2023.08.00')
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.material3:material3'
