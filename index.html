@@ -9,19 +9,10 @@
             color-scheme: light dark;
             --primary: #00ffcc;
             --whatsapp: #25D366;
-            --bg: #f8f9fa;
-            --text: #1a1a1a;
-            --card: #ffffff;
-            --border: #e0e0e0;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0a0a0a;
-                --text: #e0e0e0;
-                --card: #161616;
-                --border: #333;
-            }
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --card: #161616;
+            --border: #333;
         }
 
         body {
@@ -34,6 +25,131 @@
             justify-content: center;
         }
 
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: bold; 
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .wa-btn {
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .protocol-card {
+            border-left: 5px solid var(--primary);
+        }
+
+        .highlight { color: var(--primary); font-weight: bold; }
+
+        .btn-github {
+            display: block;
+            text-align: center;
+            background: var(--text);
+            color: var(--bg);
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            padding-bottom: 40px;
+        }
+
+        h2 { margin-top: 0; color: var(--primary); font-size: 1.5rem; }
+        p { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">VectorVision</div>
+            <a href="https://wa.me/923440708494" class="wa-btn">WhatsApp</a>
+        </nav>
+
+        <header>
+            <h1>VectorVision</h1>
+            <p class="tagline">The New Geometric Media Standard</p>
+        </header>
+
+        <div class="card">
+            <p>We are replacing pixels with <span class="highlight">Pure Geometry</span>. No more blurry artifacts. Deliver infinite fidelity with <span class="highlight">85% data savings</span>.</p>
+        </div>
+
+        <div class="card protocol-card">
+            <h2>.svgc</h2>
+            <p><strong>Replacement for:</strong> JPG, PNG, BMP</p>
+            <p>Scalable Vector Geometric Camera protocol. Captures reality as mathematical paths that never blur when zoomed.</p>
+        </div>
+
+        <div class="card protocol-card">
+            <h2>.svgv</h2>
+            <p><strong>Replacement for:</strong> MP4, MKV, AVI</p>
+            <p>Scalable Vector Global Video standard. Handles motion as geometry, making 8K clarity possible on slow networks.</p>
+        </div>
+
+        <a href="https://github.com/thealidev/VectorVision" class="btn-github">View GitHub Repository</a>
+
+        <footer>
+            <p>Architected by Muhammad Ali | Rawalpindi, Pakistan</p>
+            <p>&copy; 2026 VectorVision | MIT License</p>
+        </footer>
+    </div>
+</body>
+</html>
         .container {
             width: 100%;
             max-width: 500px;
