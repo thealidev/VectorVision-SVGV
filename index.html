@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VectorVision | The New Geometric Media Standard</title>
     <style>
+        /* Modern System-Aware Styling */
         :root {
-            color-scheme: light dark;
+            color-scheme: dark;
             --primary: #00ffcc;
             --whatsapp: #25D366;
             --bg: #0a0a0a;
@@ -27,13 +28,142 @@
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px; /* Locked width for mobile perfection */
             padding: 20px;
             box-sizing: border-box;
         }
 
+        /* Top Navigation */
         nav {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: bold; 
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .wa-btn {
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+
+        /* Content Blocks */
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .protocol-card {
+            border-left: 5px solid var(--primary);
+        }
+
+        h2 { 
+            margin-top: 0; 
+            color: var(--primary); 
+            font-size: 1.6rem; 
+        }
+
+        .highlight { 
+            color: var(--primary); 
+            font-weight: bold; 
+        }
+
+        /* Repository Link */
+        .btn-github {
+            display: block;
+            text-align: center;
+            background: var(--text);
+            color: var(--bg);
+            padding: 16px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 50px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">VectorVision</div>
+            <a href="https://wa.me/923440708494" class="wa-btn">WhatsApp</a>
+        </nav>
+
+        <header>
+            <h1>VectorVision</h1>
+            <p class="tagline">The New Geometric Media Standard</p>
+        </header>
+
+        <div class="card">
+            <p>We are replacing pixels with <span class="highlight">Pure Geometry</span>. No more blurry artifacts or digital trash. Our protocols deliver infinite fidelity with <span class="highlight">85% data savings</span>.</p>
+        </div>
+
+        <div class="card protocol-card">
+            <h2>.svgc</h2>
+            <p><strong>Replacement for:</strong> JPG, PNG, BMP</p>
+            <p>The Scalable Vector Geometric Camera protocol. Capture reality as mathematical paths that never blur, no matter the zoom level.</p>
+        </div>
+
+        <div class="card protocol-card">
+            <h2>.svgv</h2>
+            <p><strong>Replacement for:</strong> MP4, MKV, AVI</p>
+            <p>The Scalable Vector Global Video standard. Handles motion as geometry, making 8K clarity possible even on slow mobile networks.</p>
+        </div>
+
+        <a href="https://github.com/thealidev/VectorVision" class="btn-github">View GitHub Repository</a>
+
+        <footer>
+            <p>Architected by Muhammad Ali | Rawalpindi, Pakistan</p>
+            <p>&copy; 2026 VectorVision | MIT License</p>
+        </footer>
+    </div>
+</body>
+</html>
             justify-content: space-between;
             align-items: center;
             padding-bottom: 20px;
