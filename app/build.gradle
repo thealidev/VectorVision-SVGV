@@ -22,17 +22,19 @@ android {
         }
     }
 
-    // Surgical Version Forcing: This stops the 'duplicate class' error
+    // This surgical block forces alignment across all transitive paths
     configurations.all {
         resolutionStrategy {
-            eachDependency { details ->
-                if (details.requested.group == 'androidx.lifecycle') {
-                    details.useVersion "2.6.1"
-                }
-                if (details.requested.group == 'androidx.arch.core') {
-                    details.useVersion "2.2.0"
-                }
+            dependencySubstitution {
+                substitute module('androidx.lifecycle:lifecycle-runtime') using module('androidx.lifecycle:lifecycle-runtime:2.6.1')
+                substitute module('androidx.lifecycle:lifecycle-viewmodel') using module('androidx.lifecycle:lifecycle-viewmodel:2.6.1')
+                substitute module('androidx.arch.core:core-runtime') using module('androidx.arch.core:core-runtime:2.2.0')
+                substitute module('androidx.arch.core:core-common') using module('androidx.arch.core:core-common:2.2.0')
             }
+            // Ensuring newest version wins for remaining conflicts
+            force 'androidx.lifecycle:lifecycle-common:2.6.1'
+            force 'androidx.lifecycle:lifecycle-livedata:2.6.1'
+            force 'androidx.lifecycle:lifecycle-livedata-core:2.6.1'
         }
     }
 
@@ -56,7 +58,6 @@ dependencies {
     implementation "androidx.camera:camera-video:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
     
-    // Core UI Components
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
