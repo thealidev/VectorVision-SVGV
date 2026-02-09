@@ -22,7 +22,7 @@ android {
         }
     }
 
-    // Force total alignment to kill the 'duplicate class' error
+    // Pro-Level Synchronization: Forces the entire project to one standard
     configurations.all {
         resolutionStrategy {
             eachDependency { DependencyResolveDetails details ->
@@ -56,7 +56,7 @@ dependencies {
     implementation "androidx.camera:camera-video:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
     
-    // Core UI with manual override for the log errors
+    // Core UI with specific version overrides to match our strategy
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
