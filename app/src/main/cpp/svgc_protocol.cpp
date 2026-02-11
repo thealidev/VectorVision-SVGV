@@ -1,19 +1,32 @@
-#include <jni.h>
+
+#include "svgc_header.h"
 #include <string>
 
-// SVGC File Header Definition [cite: 2026-02-07]
-const char* SVGC_MAGIC_NUMBER = "SVGC10"; // Version 1.0
+/**
+ * @brief Encodes a packet of geometric data into the final .svgc byte stream.
+ * 
+ * This function takes the structured SVGC_Packet (containing a header and a list
+ * of path strings) and serializes it into a flat byte array according to the
+ * SVGC specification.
+ * 
+ * The current implementation is a PLACEHOLDER. It correctly appends the header
+ * and the dummy path, but a real implementation would need a more robust
+ * serialization method (e.g., specifying path lengths, etc.).
+ * 
+ * @param packet The SVGC_Packet to be encoded.
+ * @return A vector of characters (bytes) representing the final .svgc file.
+ */
+std::vector<char> encodeToSvgcFormat(const SVGC_Packet& packet) {
+    std::vector<char> fileBytes;
 
-extern "C" JNIEXPORT jbyteArray JNICALL
-Java_com_vectorvision_svgv_MainActivity_encodeToSVGC(
-        JNIEnv* env,
-        jobject /* this */,
-        jbyteArray rawPixels) {
-    
-    // 1. Create the .svgc container [cite: 2026-02-07]
-    // 2. Inject the Magic Number so the system knows it's an SVGC [cite: 2026-02-07]
-    // 3. Convert Pixels to Path-Data (The "Anti-Trash" Engine) [cite: 2026-02-07]
-    
-    // This turns a 5MB JPG into a 500KB .svgc [cite: 2026-02-07]
-    return rawPixels; // Placeholder for the actual encoded bytes
+    // 1. Write the header/magic number to the byte stream
+    fileBytes.insert(fileBytes.end(), packet.header.begin(), packet.header.end());
+
+    // 2. Write the path data
+    //    A real implementation would need to handle multiple paths and delimiters.
+    for (const auto& path_str : packet.paths) {
+        fileBytes.insert(fileBytes.end(), path_str.begin(), path_str.end());
+    }
+
+    return fileBytes;
 }

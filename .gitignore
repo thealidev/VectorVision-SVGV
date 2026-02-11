@@ -1,0 +1,25 @@
+# Created by Gemini
+
+# Android build files
+build/
+.gradle/
+local.properties
+
+# IDE files
+.idea/
+*.iml
+
+# Keystore files
+*.keystore
+
+# Log files
+*.log
+
+# Test files
+captures/
+
+# Native build files
+.cxx/
+
+# Other
+*.hprof
