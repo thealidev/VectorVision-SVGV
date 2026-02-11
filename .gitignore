@@ -23,3 +23,18 @@ captures/
 
 # Other
 *.hprof
+
+# Android SDK
+/tools/
+/platform-tools/
+/build-tools/
+/platforms/
+/add-ons/
+/sources/
+/system-images/
+/docs/
+/samples/
+/extras/
+
+# Command line tools zip file
+commandlinetools-*.zip
